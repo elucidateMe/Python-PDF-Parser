@@ -2,6 +2,9 @@ import fitz # PyMuPDF reader
 import re 
 from os import listdir, path 
 
+def createFileList(location = '.') -> list:
+  return [i for i in listdir(location) if path.isfile(i)]
+
 class pdfObject:
   # pdfButtonDict variable assumes there is only one button dictionary
   # pdfTableVarList assumes there is only one table list
@@ -65,21 +68,23 @@ class pdfObject:
       return tempList
 
 pdfType = {
-    'example' : {
-          #button consists of a dict of what order button represents what visually on the pdf and how the button is named internally on the pdf
-          'button' : {
-                  'button' : {'0' : 'Bad',
-                              '1' : 'Ok',
-                              '2' : 'Good',
-                              },
-                  'buttonName' : 'Group1'
-                      },
-          #the internal names of the 'rows' (visually columns) in a table in the pdf
-          'table' : ['DAYRow1', 'MONTHRow1', 'YEARRow1', 'HOURS bRow1',
-                     'POINTS cRow1', 'LOCATION dRow1'],
-          #what data is generically desired from the pdf, it is a list of the desired item(s) as they are named internally
-          'return' : ['1 DATE', '5 NAME', 'POINTS cRow1']
+  'example' : {
+    #button consists of a dict of what order button represents what visually on the pdf and how the button is named internally on the pdf
+    'button' : {
+      'button' : {'0' : 'Bad',
+                  '1' : 'Ok',
+                  '2' : 'Good',
+                  },
+      'buttonName' : 'Group1'
+                },
+    #the internal names of the 'rows' (visually columns) in a table in the pdf
+    'table' : ['DAYRow1', 'MONTHRow1', 'YEARRow1', 'HOURS bRow1',
+                'POINTS cRow1', 'LOCATION dRow1'],
+    #what data is generically desired from the pdf, it is a list of the desired item(s) as they are named internally
+    'return' : ['1 DATE', '5 NAME', 'POINTS cRow1']
     }
 }
 
- 
+if __name__ == __main__:
+  for pdfFile in createFileList():
+    print(pdfFile)
