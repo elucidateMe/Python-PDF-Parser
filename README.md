@@ -86,7 +86,8 @@ Table columns will be stored as a string with many return lines. i.e.
 'DAYRow1': '25\r\r26 \r\r\r'
 ```
 
-The table formatting option currently creates a list by removing splitting by whatever separating character there is.
+The table formatting option currently creates a list by splitting by whatever separating character there is.
+By default, the separator is any amount of return characters.
 ```
   def tableSortPdf(self, sep = r'\r+'):
     #rows in pdfTableVarList are visually the columns of the table, variables are called rows just for consistency
