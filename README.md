@@ -1,10 +1,10 @@
 # Python PDF Parser
-This Pdf Parser creates a python object which consists of the values of inputted fields within a PDF using PyMUPdf, which by default will print as a json
+This Pdf Parser creates a python object which consists of the values of inputted fields within a PDF using PyMUPdf, which by default will print as a json.
 
 ## Initilization
 
-The initialization requires the file location of the pdf
-The pdfType option is for formatting purposes as certain fields are retrieved by default are not human readable
+The initialization requires the file location of the pdf.
+The pdfType option is for formatting purposes as certain fields are retrieved by default are not human readable.
 ```
   def __init__(self, pdfFile, pdfType = None):
     self.pdfFile = pdfFile
@@ -16,7 +16,7 @@ The pdfType option is for formatting purposes as certain fields are retrieved by
     self.dictOfNameValue()
 ```
 
-dictOfNameValue creates a json-esque object and stores it within self.pdfDict
+dictOfNameValue creates a json-esque object and stores it within self.pdfDict.
 ```
   def dictOfNameValue(self) -> dict:
     container = {}
@@ -39,8 +39,8 @@ dictOfNameValue creates a json-esque object and stores it within self.pdfDict
 ```
 
 ## pdfType Formatting
-This is a dictionary contained outside the pdfObject class which helps interpret certain input field types within the PDF
-In order to create this dictionary, you must know how the inputs are stored on the PDF itself, which can be done by printing an initial parse of a PDF
+This is a dictionary contained outside the pdfObject class which helps interpret certain input field types within the PDF.
+In order to create this dictionary, you must know how the inputs are stored on the PDF itself, which can be done by printing an initial parse of a PDF.
 ```
 pdfType = {
   'example' : {
@@ -66,7 +66,7 @@ Buttons in a group will be interpreted as a generic list, Where a button being "
 'Group1': ['0', 'Off', 'Off']
 ```
 
-The button formatting option currently prints the button the first button that is recognized as "on" in accordance 
+The button formatting option currently prints the button the first button that is recognized as "on" in accordance.
 ```
   def checkPDFButton(self):
     for i in self.pdfDict[self.pdfButtonDict['buttonName']]:
