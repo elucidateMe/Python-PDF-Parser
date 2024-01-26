@@ -61,7 +61,7 @@ pdfType = {
 }
 ```
 ### Button
-Buttons in a group will be interpreted as a generic list, Where a button being "on" is indicated by a change from 'Off' into '\<index position>'
+Buttons in a group will be interpreted as a generic list, Where a button being "on" is indicated by a change from 'Off' into '\<index position>'. i.e.
 ```
 'Group1': ['0', 'Off', 'Off']
 ```
@@ -81,7 +81,7 @@ The above example would now be:
 ```
 
 ### Table
-Table columns will be stored as a string with many return lines
+Table columns will be stored as a string with many return lines. i.e.
 ```
 'DAYRow1': '25\r\r26 \r\r\r'
 ```
